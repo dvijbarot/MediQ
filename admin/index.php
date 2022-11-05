@@ -78,6 +78,11 @@
                         <a href="doctors.php" class="non-style-link-menu "><div><p class="menu-text">Doctors</p></a></div>
                     </td>
                 </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-doctor ">
+                        <a href="counselor.php" class="non-style-link-menu "><div><p class="menu-text">Counselors</p></a></div>
+                    </td>
+                </tr>
                 <tr class="menu-row" >
                     <td class="menu-btn menu-icon-schedule">
                         <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">Schedule</p></div></a>

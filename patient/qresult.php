@@ -72,13 +72,13 @@
                     </td>
                 </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-home menu-active menu-icon-home-active" >
-                        <a href="index.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Home</p></a></div></a>
+                    <td class="menu-btn menu-icon-home" >
+                        <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Home</p></a></div></a>
                     </td>
                 </tr>
                 <tr class="menu-row">
-                    <td class="menu-btn menu-icon-doctor">
-                        <a href="questionnairesult.php" class="non-style-link-menu"><div><p class="menu-text">Questionnare Result</p></a></div>
+                    <td class="menu-btn menu-icon-doctor menu-active menu-icon-doctor-active">
+                        <a href="qresult.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Results</p></a></div>
                     </td>
                 </tr>
                 
@@ -121,7 +121,7 @@
                 <tr >
                     <td width="13%">
 
-                    <a href="patient.php" ><button  class="login-btn btn-primary-soft btn btn-icon-back"  style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px"><font class="tn-in-text">Back</font></button></a>
+                    <a href="index.php" ><button  class="login-btn btn-primary-soft btn btn-icon-back"  style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px"><font class="tn-in-text">Back</font></button></a>
                         
                     </td>
                     <td>

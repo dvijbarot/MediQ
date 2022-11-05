@@ -82,7 +82,11 @@
                         <a href="index.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Home</p></a></div></a>
                     </td>
                 </tr>
-                
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-doctor menu-active menu-icon-doctor-active" >
+                        <a href="qresult.php" class="non-style-link-menu"><div><p class="menu-text">Results</p></a></div></a>
+                    </td>
+                </tr>
             </table>
         </div>
         <div class="dash-body" style="margin-top: 15px">

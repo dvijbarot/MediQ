@@ -91,10 +91,15 @@
                     </td>
                 </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-patient">
+                    <td class="menu-btn menu-icon-doctor">
                         <a href="qresult.php" class="non-style-link-menu"><div><p class="menu-text">Assessments</p></a></div>
                     </td>
-                </tr>                
+                </tr>
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-schedule">
+                        <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">Schedule</p></div></a>
+                    </td>
+                </tr>              
             </table>
         </div>
         <div class="dash-body" style="margin-top: 15px">

@@ -77,9 +77,14 @@
                         <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Dashboard</p></a></div></a>
                     </td>
                 </tr>
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-patient">
+                        <a href="patient.php" class="non-style-link-menu"><div><p class="menu-text">Patients</p></a></div>
+                    </td>
+                </tr>
                 <tr class="menu-row">
-                    <td class="menu-btn menu-icon-doctor">
-                        <a href="questionnairesult.php" class="non-style-link-menu"><div><p class="menu-text">Questionnare Result</p></a></div>
+                    <td class="menu-btn menu-icon-doctor menu-active menu-icon-doctor-active">
+                        <a href="qresult.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Assessments</p></a></div>
                     </td>
                 </tr>
                 
@@ -88,7 +93,7 @@
         <?php       
 
                     $selecttype="All";
-                    $current="All patients Only";
+                    $current="All patients";
                     if($_POST){
 
                         if(isset($_POST["search"])){

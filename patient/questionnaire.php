@@ -82,7 +82,7 @@
 
                 <tr class="menu-row">
                     <td class="menu-btn menu-icon-doctor">
-                        <a href="questionnairesult.php" class="non-style-link-menu"><div><p class="menu-text">Questionnare Result</p></a></div>
+                        <a href="qresult.php" class="non-style-link-menu"><div><p class="menu-text">Result</p></a></div>
                     </td>
                 </tr>
                 
