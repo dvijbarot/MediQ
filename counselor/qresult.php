@@ -93,14 +93,14 @@
         <?php       
 
                     $selecttype="All";
-                    $current="All patients";
+                    $current="All";
                     if($_POST){
 
                         if(isset($_POST["search"])){
                             $keyword=$_POST["search12"];
                             
                             $sqlmain= "select * from patient where pemail='$keyword' or pname='$keyword' or pname like '$keyword%' or pname like '%$keyword' or pname like '%$keyword%' ";
-                            $selecttype="all";
+                            $selecttype="All";
                         }
                         
                         if(isset($_POST["filter"])){
@@ -109,14 +109,14 @@
                                 $selecttype="All";
                                 $current="All patients";
                             }else{
-                                $sqlmain= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.docid=$userid;";
-                                $selecttype="My";
+                                $sqlmain= "select * from patient";
+                                $selecttype="All";
                                 $current="My patients Only";
                             }
                         }
                     }else{
-                        $sqlmain= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.docid=$userid;";
-                        $selecttype="My";
+                        $sqlmain= "select * from patient";
+                        $selecttype="All";
                     }
 
 
@@ -181,11 +181,11 @@
                 
                 <tr>
                     <td colspan="4" style="padding-top:10px;">
-                        <p class="heading-main12" style="margin-left: 45px;font-size:18px;color:rgb(49, 49, 49)"><?php echo $selecttype." Patients (".$list11->num_rows.")"; ?></p>
+                        <p class="heading-main12" style="margin-left: 45px;font-size:18px;color:rgb(49, 49, 49)"> <?php echo $selecttype." Assessments (".$list11->num_rows.")"; ?></p>
                     </td>
                     
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td colspan="4" style="padding-top:0px;width: 100%;" >
                         <center>
                         <table class="filter-container" border="0" >
@@ -197,7 +197,7 @@
                         </td>
                         <td width="30%">
                         <select name="showonly" id="" class="box filter-container-items" style="width:90% ;height: 37px;margin: 0;" >
-                                    <option value="" disabled selected hidden><?php echo $current   ?></option><br/>
+                                    <option value="" disabled selected hidden> <?php echo $current   ?></option><br/>
                                     <option value="all">All Patients</option><br/>
                                     <option value="my">My Patients</option><br/>
                                     
@@ -207,7 +207,7 @@
                     <td width="12%">
                         <input type="submit"  name="filter" value=" Filter" class=" btn-primary-soft btn button-icon btn-filter"  style="padding: 15px; margin :0;width:100%">
                         </form>
-                    </td>
+                    </td> 
 
                     </tr>
                             </table>
@@ -215,7 +215,7 @@
                         </center>
                     </td>
                     
-                </tr>
+                </tr> -->
                   
                 <tr>
                    <td colspan="4">

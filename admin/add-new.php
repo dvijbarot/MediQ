@@ -42,8 +42,6 @@
         //print_r($_POST);
         $result= $database->query("select * from webuser");
         $name=$_POST['name'];
-        $nic=$_POST['nic'];
-        $spec=$_POST['spec'];
         $email=$_POST['email'];
         $tele=$_POST['Tele'];
         $password=$_POST['password'];
@@ -56,7 +54,7 @@
                 $error='1';
             }else{
 
-                $sql1="insert into doctor(docemail,docname,docpassword,docnic,doctel,specialties) values('$email','$name','$password','$nic','$tele',$spec);";
+                $sql1="insert into doctor(docemail,docname,docpassword,doctel) values('$email','$name','$password','$tele');";
                 $sql2="insert into webuser values('$email','d')";
                 $database->query($sql1);
                 $database->query($sql2);
