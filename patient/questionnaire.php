@@ -140,38 +140,79 @@
                 <?php 
                     $qsql = mysqli_query($database,"SELECT * FROM question") or die(mysqli_error($database));
 
-                    while($data = mysqli_fetch_array($qsql)){
-                ?>
+                    $ifsubmitted = mysqli_query($database,"SELECT * FROM questionnaire WHERE pid = $userid");
+                    if(mysqli_num_rows($ifsubmitted) > 0){
+                        ?>
+                        <div class="card-body" style="height:80px; margin-left:50px; margin-top:50px; color:gray;font-size:24px">
+                                Only 1 attempt is allowed per user!
+                            </div>
+                        <?php
+                        while($data = mysqli_fetch_array($qsql)){
+                       
+                        
+                        
+                ?>      
                     <section class="filter-container" id="question--<?php echo $data['qid']?>" style="padding:20px; margin:20px;">
                         <input type="hidden" name="qid[]" value="<?php echo $data['qid']?>">
                         <p class="small"><?php echo $data['qid']?> of 9 </p>
                         <p><?php echo $data['question'] ?></strong>?</p>
                         <div class="form-item">
-                            <input type="radio" id="question--<?php echo $data['qid']?>--1" name="questions[<?php echo $data['qid'] ?>][]" value="0"><label for="question--<?php echo $data['qid']?>--1" data-question="1"> Not At all</label>
+                            <input type="radio" id="question--<?php echo $data['qid']?>--1" name="questions[<?php echo $data['qid'] ?>][]" value="0" required disabled><label for="question--<?php echo $data['qid']?>--1" data-question="1"> Not At all</label>
                         </div>
                         <div class="form-item">
-                            <input type="radio" id="question--<?php echo $data['qid']?>--2" name="questions[<?php echo $data['qid'] ?>][]" value="1"><label for="question--<?php echo $data['qid']?>--2" data-question="1"> Several Days</label>
+                            <input type="radio" id="question--<?php echo $data['qid']?>--2" name="questions[<?php echo $data['qid'] ?>][]" value="1" required disabled><label for="question--<?php echo $data['qid']?>--2" data-question="1"> Several Days</label>
                         </div>
                         <div class="form-item">
-                            <input type="radio" id="question--<?php echo $data['qid']?>--3" name="questions[<?php echo $data['qid'] ?>][]" value="2"><label for="question--<?php echo $data['qid']?>--3" data-question="1"> More Than Half the Days</label>
+                            <input type="radio" id="question--<?php echo $data['qid']?>--3" name="questions[<?php echo $data['qid'] ?>][]" value="2" required disabled><label for="question--<?php echo $data['qid']?>--3" data-question="1"> More Than Half the Days</label>
                         </div>
                         <div class="form-item">
-                            <input type="radio" id="question--<?php echo $data['qid']?>--4" name="questions[<?php echo $data['qid'] ?>][]" value="3"><label for="question--<?php echo $data['qid']?>--4" data-question="1"> Nearly Every Day</label>
+                            <input type="radio" id="question--<?php echo $data['qid']?>--4" name="questions[<?php echo $data['qid'] ?>][]" value="3" required disabled><label for="question--<?php echo $data['qid']?>--4" data-question="1"> Nearly Every Day</label>
                         </div>
 
 
                     </section>
+                    <?php 
+                    } ?>
+                        <input type="submit" name="add"  value="You Already Submitted!" style="margin:20px; width:93%;" disabled>
+                    <?php }else{ 
+                        while($data = mysqli_fetch_array($qsql)){
+                       
+                        
+                        
+                       ?>
+                     
+                           <section class="filter-container" id="question--<?php echo $data['qid']?>" style="padding:20px; margin:20px;">
+                               <input type="hidden" name="qid[]" value="<?php echo $data['qid']?>">
+                               <p class="small"><?php echo $data['qid']?> of 9 </p>
+                               <p><?php echo $data['question'] ?></strong>?</p>
+                               <div class="form-item">
+                                   <input type="radio" id="question--<?php echo $data['qid']?>--1" name="questions[<?php echo $data['qid'] ?>][]" value="0" required><label for="question--<?php echo $data['qid']?>--1" data-question="1"> Not At all</label>
+                               </div>
+                               <div class="form-item">
+                                   <input type="radio" id="question--<?php echo $data['qid']?>--2" name="questions[<?php echo $data['qid'] ?>][]" value="1" required ><label for="question--<?php echo $data['qid']?>--2" data-question="1"> Several Days</label>
+                               </div>
+                               <div class="form-item">
+                                   <input type="radio" id="question--<?php echo $data['qid']?>--3" name="questions[<?php echo $data['qid'] ?>][]" value="2" required ><label for="question--<?php echo $data['qid']?>--3" data-question="1"> More Than Half the Days</label>
+                               </div>
+                               <div class="form-item">
+                                   <input type="radio" id="question--<?php echo $data['qid']?>--4" name="questions[<?php echo $data['qid'] ?>][]" value="3" required ><label for="question--<?php echo $data['qid']?>--4" data-question="1"> Nearly Every Day</label>
+                               </div>
+       
+       
+                           </section>
+                           <?php 
+                           } ?>
+                            <input type="submit" name="add" class="login-btn btn-primary btn" value="Submit" style="margin:20px; width:93%;" >
                     <?php } ?>
-                        <input type="submit" name="add" class="login-btn btn-primary btn" value="Submit" style="margin:20px; width:93%;">
                     <div id="bottomofpage"></div>
 
 
 
-                    <div class="container">
+                    <!-- <div class="container">
                     <p class="quiz--instructions">
                     This [course] is not to be used for diagnosis, treatment or referral services. The materials in CAMH's online courses are only educational tools. They are of general value, and may not apply to specific situations. They are not considered professional advice or guidance for a particular case. Online resources are not a substitute for the personalized judgment and care of a trained medical professional.
                     </p>
-                    </div>
+                    </div> -->
 
                 </form>
         <?php
@@ -187,7 +228,7 @@
                     $database->query("INSERT into questionnaire(pid,qid,a) values($userid,$question_number,$qdata[0])") or die (mysqli_error($database));
                 }
                   
-                echo "<script>alert('Your Assessment Result has been saved')</script>";
+                echo "<script>  window.location.href = 'questionnairesult.php';</script>";
                
             }
 

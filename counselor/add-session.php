@@ -17,10 +17,10 @@
         include("../connection.php");
         $title=$_POST["title"];
         $docid=$_POST["docid"];
-        $nop=$_POST["nop"];
+        $pid=$_POST["pid"];
         $date=$_POST["date"];
         $time=$_POST["time"];
-        $sql="insert into schedule (docid,title,scheduledate,scheduletime,nop) values ($docid,'$title','$date','$time',$nop);";
+        $sql="insert into schedule (docid,title,scheduledate,scheduletime,pid) values ($docid,'$title','$date','$time',$pid);";
         $result= $database->query($sql);
         header("location: schedule.php?action=session-added&title=$title");
         

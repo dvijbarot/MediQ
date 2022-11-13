@@ -83,8 +83,13 @@
                     </td>
                 </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-doctor menu-active menu-icon-doctor-active" >
+                    <td class="menu-btn menu-icon-doctor" >
                         <a href="qresult.php" class="non-style-link-menu"><div><p class="menu-text">Results</p></a></div></a>
+                    </td>
+                </tr>
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-doctor" >
+                        <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">Appointment</p></a></div></a>
                     </td>
                 </tr>
             </table>
