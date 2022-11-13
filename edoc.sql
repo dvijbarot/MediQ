@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 31, 2022 at 05:12 PM
+-- Generation Time: Nov 14, 2022 at 12:51 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -58,7 +58,7 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`appoid`, `pid`, `apponum`, `scheduleid`, `appodate`) VALUES
-(4, 3, 1, 1, '2022-10-28');
+(1, 1, 1, 1, '2022-06-03');
 
 -- --------------------------------------------------------
 
@@ -106,16 +106,7 @@ CREATE TABLE `doctor` (
 --
 
 INSERT INTO `doctor` (`docid`, `docemail`, `docname`, `docpassword`, `docaddress`, `docRegid`, `doctel`, `docdob`) VALUES
-(1, 'doctor@edoc.com', 'Test Doctor', '123', NULL, '000000000', '0110000000', '2000-05-10'),
-(2, 'db17@gmail.com', 'Dvij Hitesh B', '123', 'B-4, Flat No. 2406, Blue Ridge', '', '1470218028', '2021-11-30'),
-(3, 'db101@gmail.com', 'Dvij Barot', '123', 'B-4, Flat No. 2406, Blue Ridge', '1234556', '1702180284', '2222-02-02'),
-(4, 'hi123@gmail.com', 'Hi Hello', 'abcd', '123', '1234', '1321235523', '2022-12-31'),
-(5, 'b@gmil.com', 'B B', '123', 'B', '0', '1470218028', '2022-12-31'),
-(6, 'ananaya@gmail.com', 'Anana ya', '123', '123', '123', '1470218028', '0001-11-01'),
-(7, 'hs@gmail.cpm', 'Honey S', '123', 'hs', '1235', '1470218028', '2022-12-31'),
-(8, 'uday008@gmail.com', 'Uday B', '123', '1999', '123455', '1702180284', '2022-12-31'),
-(9, 'l@gmail.com', 'L L', '123', 'L', '1', '1470218028', '2022-12-31'),
-(10, 'sgad@gmail.com', 'Dvij Hitesh B', '123', 'agadg', 'qewrqe', '', '2022-09-27');
+(1, 'doctor@edoc.com', 'Test Doctor', '123', NULL, '000000000', '0110000000', '2000-05-10');
 
 -- --------------------------------------------------------
 
@@ -129,24 +120,18 @@ CREATE TABLE `patient` (
   `pname` varchar(255) DEFAULT NULL,
   `ppassword` varchar(255) DEFAULT NULL,
   `paddress` varchar(255) DEFAULT NULL,
+  `pnic` varchar(15) DEFAULT NULL,
   `pdob` date DEFAULT NULL,
-  `pmobile` varchar(15) DEFAULT NULL
+  `ptel` varchar(15) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`pid`, `pemail`, `pname`, `ppassword`, `paddress`, `pdob`, `pmobile`) VALUES
-(1, 'patient@edoc.com', 'Test Patient', '123', 'Honululul', '2000-01-01', '0120000000'),
-(2, 'emhashenudara@gmail.com', 'Hashen Udara', '123', 'Sri Lanka', '2022-06-03', '0700000000'),
-(3, 'db10@gmail.com', 'Dvij Barot', '123', '1160', '2011-06-02', '1470218028'),
-(4, 'db1170@gmail.com', 'Dvij Hitesh Barot', '123', 'B-4, Flat No. 2406, Blue Ridge, Hinjewadi Phase -1, Pune', '2021-10-30', '1321235523'),
-(5, 'A@gmail.com', 'A A', '123', 'A', '2022-12-31', '1321235523'),
-(6, 'B@gmail.com', 'A A', '1', 'A', '2022-12-31', '1470218028'),
-(7, 'D@gmail.com', 'D D', '1234', 'D', '2022-01-01', '1470218028'),
-(8, 'Anana@gmail.com', 'Aan ya', '123', '123', '2022-01-01', '1470218028'),
-(9, 'ub@gmail.com', 'Uday B', '123', '123', '2022-12-31', '1470218028');
+INSERT INTO `patient` (`pid`, `pemail`, `pname`, `ppassword`, `paddress`, `pnic`, `pdob`, `ptel`) VALUES
+(4, 'patient@edoc.com', 'Test Patient', '123', NULL, NULL, NULL, '17021802845'),
+(9, 'db17@gmail.com', 'Patient 2', '123', '1', NULL, '2022-12-31', '1470218028');
 
 -- --------------------------------------------------------
 
@@ -192,16 +177,24 @@ CREATE TABLE `questionnaire` (
 --
 
 INSERT INTO `questionnaire` (`id`, `pid`, `qid`, `a`) VALUES
-(148, 8, 9, '3'),
-(147, 8, 8, '3'),
-(146, 8, 7, '3'),
-(145, 8, 6, '3'),
-(144, 8, 5, '3'),
-(143, 8, 4, '3'),
-(142, 8, 3, '3'),
-(141, 8, 2, '3'),
-(140, 8, 1, '3'),
-(139, 1, 1, '3');
+(58, 9, 9, '3'),
+(57, 9, 8, '3'),
+(56, 9, 7, '3'),
+(55, 9, 6, '3'),
+(54, 9, 5, '3'),
+(53, 9, 4, '3'),
+(52, 9, 3, '3'),
+(51, 9, 2, '3'),
+(50, 9, 1, '3'),
+(49, 4, 9, '0'),
+(48, 4, 8, '3'),
+(47, 4, 7, '3'),
+(46, 4, 6, '3'),
+(45, 4, 5, '3'),
+(44, 4, 4, '3'),
+(43, 4, 3, '3'),
+(42, 4, 2, '3'),
+(41, 4, 1, '3');
 
 -- --------------------------------------------------------
 
@@ -211,26 +204,21 @@ INSERT INTO `questionnaire` (`id`, `pid`, `qid`, `a`) VALUES
 
 CREATE TABLE `schedule` (
   `scheduleid` int(11) NOT NULL,
-  `docid` varchar(255) DEFAULT NULL,
+  `docid` int(11) DEFAULT NULL,
+  `pid` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `scheduledate` date DEFAULT NULL,
-  `scheduletime` time DEFAULT NULL,
-  `nop` int(4) DEFAULT NULL
+  `scheduletime` time DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schedule`
 --
 
-INSERT INTO `schedule` (`scheduleid`, `docid`, `title`, `scheduledate`, `scheduletime`, `nop`) VALUES
-(1, '1', 'Test Session', '2050-01-01', '18:00:00', 50),
-(2, '1', '1', '2022-06-10', '20:36:00', 1),
-(3, '1', '12', '2022-06-10', '20:33:00', 1),
-(4, '1', '1', '2022-06-10', '12:32:00', 1),
-(5, '1', '1', '2022-06-10', '20:35:00', 1),
-(6, '1', '12', '2022-06-10', '20:35:00', 1),
-(7, '1', '1', '2022-06-24', '20:36:00', 1),
-(8, '1', '12', '2022-06-10', '13:33:00', 1);
+INSERT INTO `schedule` (`scheduleid`, `docid`, `pid`, `title`, `scheduledate`, `scheduletime`) VALUES
+(10, 1, 4, '123', '2022-12-31', '12:58:00'),
+(11, 4, 4, 'test', '2022-12-31', '11:59:00'),
+(12, 4, 9, 'TP2', '2022-12-31', '12:59:00');
 
 -- --------------------------------------------------------
 
@@ -324,23 +312,9 @@ INSERT INTO `webuser` (`email`, `usertype`) VALUES
 ('admin@edoc.com', 'a'),
 ('doctor@edoc.com', 'd'),
 ('patient@edoc.com', 'p'),
-('hs@gmail.cpm', 'd'),
-('db10@gmail.com', 'p'),
-('db17@gmail.com', 'd'),
-('db101@gmail.com', 'd'),
-('hi123@gmail.com', 'd'),
-('db1170@gmail.com', 'p'),
+('db17@gmail.com', 'p'),
 ('counselor@edoc.com', 'c'),
-('b@gmil.com', 'd'),
-('A@gmail.com', 'p'),
-('B@gmail.com', 'p'),
-('D@gmail.com', 'p'),
-('Anana@gmail.com', 'p'),
-('ananaya@gmail.com', 'd'),
-('ub@gmail.com', 'p'),
-('uday008@gmail.com', 'd'),
-('l@gmail.com', 'd'),
-('sgad@gmail.com', 'd');
+('a@gmail.com', 'p');
 
 --
 -- Indexes for dumped tables
@@ -364,7 +338,8 @@ ALTER TABLE `appointment`
 -- Indexes for table `counselor`
 --
 ALTER TABLE `counselor`
-  ADD PRIMARY KEY (`cid`);
+  ADD PRIMARY KEY (`cid`),
+  ADD UNIQUE KEY `cRegid` (`cRegid`);
 
 --
 -- Indexes for table `doctor`
@@ -395,8 +370,7 @@ ALTER TABLE `questionnaire`
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`scheduleid`),
-  ADD KEY `docid` (`docid`);
+  ADD PRIMARY KEY (`scheduleid`);
 
 --
 -- Indexes for table `specialties`
@@ -418,13 +392,19 @@ ALTER TABLE `webuser`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `appoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `counselor`
+--
+ALTER TABLE `counselor`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `docid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `docid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -436,13 +416,13 @@ ALTER TABLE `patient`
 -- AUTO_INCREMENT for table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `scheduleid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `scheduleid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
