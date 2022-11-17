@@ -201,6 +201,11 @@ body{
   overflow: auto;
 }
 
+.def{
+  width: 100%;
+  overflow: auto;
+}
+
 
 
 

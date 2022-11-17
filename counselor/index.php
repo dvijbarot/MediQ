@@ -68,7 +68,7 @@
                                     <img src="../img/user.png" alt="" width="100%" style="border-radius:50%">
                                 </td>
                                 <td style="padding:0px;margin:0px;">
-                                    <p class="profile-title"><?php echo substr($name,0,13)  ?>Counselor</p>
+                                    <p class="profile-title">Counselor</p>
                                     <p class="profile-subtitle"><?php echo substr($useremail,0,22)  ?></p>
                                 </td>
                             </tr>
@@ -99,7 +99,12 @@
                     <td class="menu-btn menu-icon-schedule">
                         <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">Schedule</p></div></a>
                     </td>
-                </tr>              
+                </tr>     
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-schedule">
+                        <a href="my-app.php" class="non-style-link-menu"><div><p class="menu-text">My Appointments</p></div></a>
+                    </td>
+                </tr>          
             </table>
         </div>
         <div class="dash-body" style="margin-top: 15px">
@@ -153,7 +158,7 @@
                             <p>Thanks for joinnig with us. We are always trying to get you a complete service<br>
                             You can view your dailly schedule, Reach Patients Appointment at home!<br><br>
                             </p>
-                            <a href="appointment.php" class="non-style-link"><button class="btn-primary btn" style="width:30%">View My Appointments</button></a>
+                            <a href="schedule.php" class="non-style-link"><button class="btn-primary btn" style="width:30%">View My Appointments</button></a>
                             <br>
                             <br>
                         </td>

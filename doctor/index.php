@@ -89,7 +89,17 @@
                     <td class="menu-btn menu-icon-patient">
                         <a href="qresult.php" class="non-style-link-menu"><div><p class="menu-text">Assessments</p></a></div>
                     </td>
-                </tr>              
+                </tr>  
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-patient ">
+                        <a href="patient.php" class="non-style-link-menu "><div><p class="menu-text">My Patients</p></a></div>
+                    </td>
+                </tr>      
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-session">
+                        <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">My Appointments</p></a></div>
+                    </td>
+                </tr>       
             </table>
         </div>
         <div class="dash-body" style="margin-top: 15px">

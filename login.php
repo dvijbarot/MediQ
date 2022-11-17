@@ -79,7 +79,7 @@
 
 
             }elseif($utype=='d'){
-                $checker = $database->query("select * from doctor where docemail='$email' and docpassword='$password'");
+                $checker = $database->query("select * from doctor where docemail='$email' and docpassword='$password' and approved='1'");
                 if ($checker->num_rows==1){
 
 
@@ -92,7 +92,7 @@
                     $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Wrong credentials: Invalid email or password</label>';
                 }
             }elseif($utype=='c'){
-                $checker = $database->query("select * from counselor where cemail='$email' and copassword='$password'");
+                $checker = $database->query("select * from counselor where cemail='$email' and copassword='$password' and approved='1'");
                 if ($checker->num_rows==1){
 
 

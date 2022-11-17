@@ -82,6 +82,11 @@
                     </td>
                 </tr>
                 
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-session" >
+                        <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">Appointment</p></a></div></a>
+                    </td>
+                </tr>
             </table>
         </div>
         <?php       

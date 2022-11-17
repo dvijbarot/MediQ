@@ -228,7 +228,7 @@
                     $database->query("INSERT into questionnaire(pid,qid,a) values($userid,$question_number,$qdata[0])") or die (mysqli_error($database));
                 }
                   
-                echo "<script>  window.location.href = 'questionnairesult.php';</script>";
+                echo "<script>  window.location.href = 'qresult.php';</script>";
                
             }
 
