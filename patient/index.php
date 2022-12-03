@@ -92,6 +92,11 @@
                         <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">Appointment</p></a></div></a>
                     </td>
                 </tr>
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-settings ">
+                        <a href="settings.php" class="non-style-link-menu "><div><p class="menu-text">Settings</p></a></div>
+                    </td>
+                </tr>
             </table>
         </div>
         <div class="dash-body" style="margin-top: 15px">

@@ -66,28 +66,23 @@
                 
                 </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-dashbord" >
-                        <a href="index.php" class="non-style-link-menu"><div><p class="menu-text">Dashboard</p></a></div></a>
+                    <td class="menu-btn menu-icon-dashbord " >
+                        <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Dashboard</p></a></div></a>
                     </td>
                 </tr>
                 <tr class="menu-row">
                     <td class="menu-btn menu-icon-doctor ">
-                        <a href="doctors.php" class="non-style-link-menu"><div><p class="menu-text">Doctors</p></a></div>
-                    </td>
-                </tr>
-                <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-schedule">
-                        <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">Schedule</p></div></a>
+                        <a href="doctors.php" class="non-style-link-menu "><div><p class="menu-text">Doctors</p></a></div>
                     </td>
                 </tr>
                 <tr class="menu-row">
-                    <td class="menu-btn menu-icon-appoinment">
-                        <a href="appointment.php" class="non-style-link-menu"><div><p class="menu-text">Appointment</p></a></div>
+                    <td class="menu-btn menu-icon-doctor  ">
+                        <a href="counselor.php" class="non-style-link-menu "><div><p class="menu-text">Counselors</p></a></div>
                     </td>
                 </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-patient">
-                        <a href="patient.php" class="non-style-link-menu"><div><p class="menu-text">Patients</p></a></div>
+                    <td class="menu-btn menu-icon-patient ">
+                        <a href="patient.php" class="non-style-link-menu "><div><p class="menu-text">Patients</p></a></div>
                     </td>
                 </tr>
                 <tr class="menu-row" >
@@ -125,7 +120,7 @@
                         </p>
                         <p class="heading-sub12" style="padding: 0;margin: 0;">
                             <?php 
-                        date_default_timezone_set('Asia/Kolkata');
+                        date_default_timezone_set('US/Eastern');
 
                         $date = date('Y-m-d');
                         echo $date;
@@ -402,7 +397,7 @@ if($_GET){
                     <h2></h2>
                     <a class="close" href="new-reg.php">&times;</a>
                     <div class="content">
-                        eDoc Web App<br>
+                        MediQ Web App<br>
                         
                     </div>
                     <div style="display: flex;justify-content: center;">
@@ -531,7 +526,7 @@ if($_GET){
                         <h2></h2>
                         <a class="close" href="new-reg.php">&times;</a>
                         <div class="content">
-                            eDoc Web App<br>
+                            MediQ Web App<br>
                             
                         </div>
                         <div style="display: flex;justify-content: center;">

@@ -50,7 +50,7 @@
     
 
 
-    date_default_timezone_set('Asia/Kolkata');
+    date_default_timezone_set('US/Eastern');
 
     $today = date('Y-m-d');
 

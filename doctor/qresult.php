@@ -76,13 +76,27 @@
                     <td class="menu-btn menu-icon-dashbord" >
                         <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Dashboard</p></a></div></a>
                     </td>
-                </tr>
-                <tr class="menu-row">
-                    <td class="menu-btn menu-icon-doctor">
-                        <a href="questionnairesult.php" class="non-style-link-menu"><div><p class="menu-text">Questionnare Result</p></a></div>
+                </tr>  
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-patient menu-active menu-icon-patient-active ">
+                        <a href="qresult.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Assessments</p></a></div>
                     </td>
-                </tr>
-                
+                </tr>  
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-patient ">
+                        <a href="patient.php" class="non-style-link-menu "><div><p class="menu-text">My Patients</p></a></div>
+                    </td>
+                </tr>      
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-session">
+                        <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">My Appointments</p></a></div>
+                    </td>
+                </tr> 
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-settings ">
+                        <a href="settings.php" class="non-style-link-menu"><div><p class="menu-text">Settings</p></a></div>
+                    </td>
+                </tr>  
             </table>
         </div>
         <?php       
@@ -159,7 +173,7 @@
                         </p>
                         <p class="heading-sub12" style="padding: 0;margin: 0;">
                             <?php 
-                        date_default_timezone_set('Asia/Kolkata');
+                        date_default_timezone_set('US/Eastern');
 
                         $date = date('Y-m-d');
                         echo $date;
@@ -372,7 +386,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="nic" class="form-label">NIC: </label>
+                                    <label for="nic" class="form-label"> </label>
                                 </td>
                             </tr>
                             <tr>

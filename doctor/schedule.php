@@ -70,21 +70,30 @@
                  </td>
              </tr>
              <tr class="menu-row" >
-                 <td class="menu-btn menu-icon-dashbord " >
-                     <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Dashboard</p></a></div></a>
-                 </td>
-             </tr>
-             
-             <tr class="menu-row" >
-                 <td class="menu-btn menu-icon-session menu-active menu-icon-session-active">
-                     <a href="schedule.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">My Appointments</p></div></a>
-                 </td>
-             </tr>
-             <tr class="menu-row" >
-                 <td class="menu-btn menu-icon-patient">
-                     <a href="patient.php" class="non-style-link-menu"><div><p class="menu-text">My Patients</p></a></div>
-                 </td>
-             </tr>
+                    <td class="menu-btn menu-icon-dashbord" >
+                        <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Dashboard</p></a></div></a>
+                    </td>
+                </tr>  
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-patient ">
+                        <a href="qresult.php" class="non-style-link-menu "><div><p class="menu-text">Assessments</p></a></div>
+                    </td>
+                </tr>  
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-patient ">
+                        <a href="patient.php" class="non-style-link-menu "><div><p class="menu-text">My Patients</p></a></div>
+                    </td>
+                </tr>      
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-session menu-active menu-icon-session-active">
+                        <a href="schedule.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">My Appointments</p></a></div>
+                    </td>
+                </tr> 
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-settings ">
+                        <a href="settings.php" class="non-style-link-menu"><div><p class="menu-text">Settings</p></a></div>
+                    </td>
+                </tr> 
              
          </table>
         </div>
@@ -105,7 +114,7 @@
                         <p class="heading-sub12" style="padding: 0;margin: 0;">
                             <?php 
 
-                        date_default_timezone_set('Asia/Kolkata');
+                        date_default_timezone_set('US/Eastern');
 
                         $today = date('Y-m-d');
                         echo $today;
@@ -125,8 +134,11 @@
                 
                 <tr>
                     <td colspan="4" style="padding-top:10px;width: 100%;" >
-                    
-                        <p class="heading-main12" style="margin-left: 45px;font-size:18px;color:rgb(49, 49, 49)">My Appointments (<?php echo $list110->num_rows; ?>) </p>
+                        <div style="display: flex;margin-top: 40px; margin-bottom: 40px">
+                        <div class="heading-main12" style="margin-left: 45px;font-size:20px;color:rgb(49, 49, 49);margin-top: 5px;">Schedule an Appointment</div>
+                        <a href="?action=add-session&id=none&error=0" class="non-style-link"><button  class="login-btn btn-primary btn button-icon"  style="margin-left:25px;background-image: url('../img/icons/add.svg');">Create Appointment</font></button>
+                        </a>
+                        </div>
                     </td>
                     
                 </tr>
@@ -463,6 +475,152 @@
             </div>
             </div>
             ';  
+    }elseif($action=='add-session'){
+
+        echo '
+        <div id="popup1" class="overlay">
+                <div class="popup">
+                <center>
+                
+                
+                    <a class="close" href="schedule.php">&times;</a> 
+                    <div style="display: flex;justify-content: center;">
+                    <div class="abc">
+                    <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                    <tr>
+                            <td class="label-td" colspan="2">'.
+                               ""
+                            
+                            .'</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Add New Session.</p><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                            <form action="add-session.php" method="POST" class="add-new-form">
+                                <label for="title" class="form-label">Session Title : </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <input type="text" name="title" class="input-text" placeholder="Name of this Session" required><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            
+                            <td class="label-td" colspan="2">
+                                <label for="docid" class="form-label">Select Doctor: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <select name="docid" id="" class="box" >
+                                <option value="" disabled selected hidden>Choose Doctor Name from the list</option><br/>';
+                                    
+    
+                                    $list11 = $database->query("select * from  doctor order by docname asc;");
+    
+                                    for ($y=0;$y<$list11->num_rows;$y++){
+                                        $row00=$list11->fetch_assoc();
+                                        $sn=$row00["docname"];
+                                        $id00=$row00["docid"];
+                                        echo "<option value=".$id00.">$sn</option><br/>";
+                                    };
+    
+    
+    
+                                    
+                    echo     '       </select><br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <label for="pid" class="form-label">Select Patient:</label>
+                                <select name="pid" id="" class="box" >
+                                <option value="" disabled selected hidden>Choose Patient Name from the list</option><br/>';
+                                    
+    
+                                    $list12 = $database->query("select  * from  patient order by pname asc;");
+    
+                                    for ($y=0;$y<$list12->num_rows;$y++){
+                                        $row01=$list12->fetch_assoc();
+                                        $sn=$row01["pname"];
+                                        $id01=$row01["pid"];
+                                        echo "<option value=".$id01.">$sn</option><br/>";
+                                    };
+    
+    
+    
+                                    
+                    echo     '       </select><br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <label for="date" class="form-label">Session Date: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <input type="date" name="date" class="input-text" min="'.date('Y-m-d').'" required><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <label for="time" class="form-label">Schedule Time: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <input type="time" name="time" class="input-text" placeholder="Time" required><br>
+                            </td>
+                        </tr>
+                       
+                        <tr>
+                            <td colspan="2">
+                                <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
+                                <input type="submit" value="Place this Session" class="login-btn btn-primary btn" name="shedulesubmit">
+                            </td>
+            
+                        </tr>
+                       
+                        </form>
+                        </tr>
+                    </table>
+                    </div>
+                    </div>
+                </center>
+                <br><br>
+        </div>
+        </div>
+        ';
+    }elseif($action=='session-added'){
+        $titleget=$_GET["title"];
+        echo '
+        <div id="popup1" class="overlay">
+                <div class="popup">
+                <center>
+                <br><br>
+                    <h2>Session Placed.</h2>
+                    <a class="close" href="schedule.php">&times;</a>
+                    <div class="content">
+                    '.substr($titleget,0,40).' was scheduled.<br><br>
+                        
+                    </div>
+                    <div style="display: flex;justify-content: center;">
+                    
+                    <a href="schedule.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a>
+                    <br><br><br><br>
+                    </div>
+                </center>
+        </div>
+        </div>
+        ';
     }
 }
 

@@ -75,18 +75,25 @@
                     </td>
                 </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-home menu-active menu-icon-home-active" >
-                        <a href="index.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Home</p></a></div></a>
+                    <td class="menu-btn menu-icon-home" >
+                        <a href="index.php" class="non-style-link-menu"><div><p class="menu-text">Home</p></a></div></a>
                     </td>
                 </tr>
-
-                <tr class="menu-row">
-                    <td class="menu-btn menu-icon-doctor">
-                        <a href="qresult.php" class="non-style-link-menu"><div><p class="menu-text">Result</p></a></div>
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-doctor " >
+                        <a href="qresult.php" class="non-style-link-menu "><div><p class="menu-text">Results</p></a></div></a>
                     </td>
                 </tr>
-                
-                
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-session menu-active menu-icon-session-active" >
+                        <a href="schedule.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Appointment</p></a></div></a>
+                    </td>
+                </tr>
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-settings ">
+                        <a href="settings.php" class="non-style-link-menu "><div><p class="menu-text">Settings</p></a></div>
+                    </td>
+                </tr>
             </table>
         </div>
         <div class="dash-body" style="margin-top: 15px">
@@ -105,7 +112,7 @@
                                 </p>
                                 <p class="heading-sub12" style="padding: 0;margin: 0;">
                                     <?php 
-                                date_default_timezone_set('Asia/Kolkata');
+                                date_default_timezone_set('US/Eastern');
         
                                 $today = date('Y-m-d');
                                 echo $today;

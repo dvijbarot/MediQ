@@ -33,7 +33,7 @@
     session_start();
 
     if(isset($_SESSION["user"])){
-        if(($_SESSION["user"])=="" or $_SESSION['usertype']!='d'){
+        if(($_SESSION["user"])=="" or $_SESSION['usertype']!='p'){
             header("location: ../login.php");
         }else{
             $useremail=$_SESSION["user"];
@@ -46,15 +46,11 @@
 
     //import database
     include("../connection.php");
-    $userrow = $database->query("select * from doctor where docemail='$useremail'");
+    $userrow = $database->query("select * from patient where pemail='$useremail'");
     $userfetch=$userrow->fetch_assoc();
-    $userid= $userfetch["docid"];
-    $username=$userfetch["docname"];
+    $userid= $userfetch["pid"];
+    $username=$userfetch["pname"];
 
-
-    //echo $userid;
-    //echo $username;
-    
     ?>
     <div class="container">
         <div class="menu">
@@ -73,37 +69,33 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <a href="../logout.php" ><input type="button" value="Log out" class="logout-btn btn-primary-soft btn"></a>
+                                <a href="../logout.php" ><input type="button" value="Log out" class="logout-btn btn-primary-soft btn"></a>
                                 </td>
                             </tr>
                     </table>
                     </td>
+                
                 </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-dashbord" >
-                        <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Dashboard</p></a></div></a>
+                    <td class="menu-btn menu-icon-home" >
+                        <a href="index.php" class="non-style-link-menu"><div><p class="menu-text">Home</p></a></div></a>
                     </td>
-                </tr>  
+                </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-patient ">
-                        <a href="qresult.php" class="non-style-link-menu "><div><p class="menu-text">Assessments</p></a></div>
+                    <td class="menu-btn menu-icon-doctor " >
+                        <a href="qresult.php" class="non-style-link-menu "><div><p class="menu-text">Results</p></a></div></a>
                     </td>
-                </tr>  
+                </tr>
                 <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-patient ">
-                        <a href="patient.php" class="non-style-link-menu "><div><p class="menu-text">My Patients</p></a></div>
+                    <td class="menu-btn menu-icon-session " >
+                        <a href="schedule.php" class="non-style-link-menu "><div><p class="menu-text">Appointment</p></a></div></a>
                     </td>
-                </tr>      
-                <tr class="menu-row" >
-                    <td class="menu-btn menu-icon-session ">
-                        <a href="schedule.php" class="non-style-link-menu "><div><p class="menu-text">My Appointments</p></a></div>
-                    </td>
-                </tr> 
+                </tr>
                 <tr class="menu-row" >
                     <td class="menu-btn menu-icon-settings menu-active menu-icon-settings-active">
                         <a href="settings.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Settings</p></a></div>
                     </td>
-                </tr> 
+                </tr>
                 
             </table>
         </div>
@@ -250,11 +242,11 @@
                         <h2>Are you sure?</h2>
                         <a class="close" href="settings.php">&times;</a>
                         <div class="content">
-                            You want to delete this record<br>('.substr($nameget,0,40).').
+                            You want to delete Your Account<br>('.substr($nameget,0,40).').
                             
                         </div>
                         <div style="display: flex;justify-content: center;">
-                        <a href="delete-doctor.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+                        <a href="delete-account.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
                         <a href="settings.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;No&nbsp;&nbsp;</font></button></a>
 
                         </div>
@@ -263,18 +255,17 @@
             </div>
             ';
         }elseif($action=='view'){
-            $sqlmain= "select * from doctor where docid='$id'";
+            $sqlmain= "select * from patient where pid='$id'";
             $result= $database->query($sqlmain);
             $row=$result->fetch_assoc();
-            $name=$row["docname"];
-            $email=$row["docemail"];
-            $spe=$row["specialties"];
+            $name=$row["pname"];
+            $email=$row["pemail"];
+            $address=$row["paddress"];
             
-            $spcil_res= $database->query("select sname from specialties where id='$spe'");
-            $spcil_array= $spcil_res->fetch_assoc();
-            $spcil_name=$spcil_array["sname"];
-            $nic=$row['docnic'];
-            $tele=$row['doctel'];
+           
+            $dob=$row["pdob"];
+            $nic=$row['pnic'];
+            $tele=$row['ptel'];
             echo '
             <div id="popup1" class="overlay">
                     <div class="popup">
@@ -316,7 +307,7 @@
                                 '.$email.'<br><br>
                                 </td>
                             </tr>
-                        
+                            
                             <tr>
                                 <td class="label-td" colspan="2">
                                     <label for="Tele" class="form-label">Telephone: </label>
@@ -327,7 +318,28 @@
                                 '.$tele.'<br><br>
                                 </td>
                             </tr>
-                            
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Address: </label>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="label-td" colspan="2">
+                            '.$address.'<br><br>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Date of Birth: </label>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="label-td" colspan="2">
+                            '.$dob.'<br><br>
+                            </td>
+                            </tr>
                             <tr>
                                 <td colspan="2">
                                     <a href="settings.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
@@ -346,18 +358,17 @@
             </div>
             ';
         }elseif($action=='edit'){
-            $sqlmain= "select * from doctor where docid='$id'";
+            $sqlmain= "select * from patient where pid='$id'";
             $result= $database->query($sqlmain);
             $row=$result->fetch_assoc();
-            $name=$row["docname"];
-            $email=$row["docemail"];
-            $spe=$row["specialties"];
+            $name=$row["pname"];
+            $email=$row["pemail"];
+           
             
-            $spcil_res= $database->query("select sname from specialties where id='$spe'");
-            $spcil_array= $spcil_res->fetch_assoc();
-            $spcil_name=$spcil_array["sname"];
-            $nic=$row['docnic'];
-            $tele=$row['doctel'];
+            
+            $address=$row["paddress"];
+            $nic=$row['pnic'];
+            $tele=$row['ptel'];
 
             $error_1=$_GET["error"];
                 $errorlist= array(
@@ -386,13 +397,13 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Edit Doctor Details.</p>
+                                            <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Edit User Account Details.</p>
                                         <br>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <form action="edit-doc.php" method="POST" class="add-new-form">
+                                            <form action="edit-user.php" method="POST" class="add-new-form">
                                             <label for="Email" class="form-label">Email: </label>
                                             <input type="hidden" value="'.$id.'" name="id00">
                                         </td>
@@ -416,19 +427,28 @@
                                         
                                     </tr>
                                     
-                                   
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <label for="Tele" class="form-label">Telephone: </label>
+                                            <label for="tele" class="form-label"> Telephone:</label>
                                         </td>
                                     </tr>
+                                    
                                     <tr>
                                         <td class="label-td" colspan="2">
                                             <input type="tel" name="Tele" class="input-text" placeholder="Telephone Number" value="'.$tele.'" required><br>
                                         </td>
                                     </tr>
-                                    
-                                    
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                            <label for="spec" class="form-label">Address</label>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-td" colspan="2">
+                                        <input type="text" name="address" class="input-text" placeholder="Address" value="'.$address.'" required><br>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
                                             <label for="password" class="form-label">Password: </label>

@@ -73,18 +73,22 @@
                 </tr>
                 <tr class="menu-row" >
                     <td class="menu-btn menu-icon-home" >
-                        <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Home</p></a></div></a>
+                        <a href="index.php" class="non-style-link-menu"><div><p class="menu-text">Home</p></a></div></a>
                     </td>
                 </tr>
-                <tr class="menu-row">
-                    <td class="menu-btn menu-icon-doctor menu-active menu-icon-doctor-active">
-                        <a href="qresult.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Results</p></a></div>
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-doctor menu-active menu-icon-doctor-active" >
+                        <a href="qresult.php" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Results</p></a></div></a>
                     </td>
                 </tr>
-                
                 <tr class="menu-row" >
                     <td class="menu-btn menu-icon-session" >
                         <a href="schedule.php" class="non-style-link-menu"><div><p class="menu-text">Appointment</p></a></div></a>
+                    </td>
+                </tr>
+                <tr class="menu-row" >
+                    <td class="menu-btn menu-icon-settings ">
+                        <a href="settings.php" class="non-style-link-menu "><div><p class="menu-text">Settings</p></a></div>
                     </td>
                 </tr>
             </table>
@@ -327,7 +331,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="nic" class="form-label">NIC: </label>
+                                    <label for="nic" class="form-label"> </label>
                                 </td>
                             </tr>
                             <tr>
