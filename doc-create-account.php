@@ -50,22 +50,22 @@ if($_POST){
     $newpassword=$_POST['newpassword'];
     $cpassword=$_POST['cpassword'];
     // echo "<h2>" . $docRegid . "</h2>";
-
-    if ($newpassword==$cpassword){
+    $usertype=['d'];
+        if ($newpassword==$cpassword){
         $result= $database->query("select * from webuser where email='$email';");
         if($result->num_rows==1){
             $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Already have an account for this Email address.</label>';
         }else{
             
             $database->query("insert into doctor(docemail,docname,docpassword,docRegid,docaddress,docdob,doctel) values('$email','$name','$newpassword','$docRegid','$address','$dob','$tele');");
-            $database->query("insert into webuser values('$email','d')");
+            $database->query("insert into webuser(email,usertype) values('$email','d    ')");
 
-            print_r("insert into doctor values($docid,'$email','$fname','$lname','$docRegid','$newpassword','$address','$dob','$tele');");
+            // print_r("insert into doctor values($docid,'$email','$fname','$lname','$docRegid','$newpassword','$address','$dob','$tele');");
             $_SESSION["user"]=$email;
             $_SESSION["usertype"]="d";
             $_SESSION["username"]=$fname;
 
-            header('Location: doctor/index.php');
+            header('Location: login.php');
             $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;"></label>';
         }
         

@@ -104,14 +104,14 @@ if($_POST){
         }else{
             
             $database->query("insert into counselor(cemail,cname,copassword,cRegid,caddress,cdob,ctel) values('$email','$name','$newpassword','$counRegid','$address','$dob','$tele');");
-            $database->query("insert into webuser values('$email','c')");
+            $database->query("insert into webuser(email,usertype) values('$email','c')");
 
             print_r("insert into counselor values($cid,'$email','$fname','$lname','$counRegid','$newpassword','$address','$dob','$tele');");
             $_SESSION["user"]=$email;
             $_SESSION["usertype"]="c";
             $_SESSION["username"]=$fname;
 
-            header('Location: counselor/index.php');
+            header('Location: login.php');
             $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;"></label>';
         }
         

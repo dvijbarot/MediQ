@@ -122,6 +122,15 @@ if($_POST){
         </table>
 
     </div>
+    <br>
+                    <label for="" class="sub-text" style="font-weight: 280;">Join as a Doctor&#63; </label>
+                    <a href="doc-signup.php" class="hover-link1 non-style-link" >Register</a>
+                    <br>
+
+    <br>
+                    <label for="" class="sub-text" style="font-weight: 280;">Join as a Counsellor&#63; </label>
+                    <a href="coun-signup.php" class="hover-link1 non-style-link" >Register</a>
+                    <br><br><br>
 </center>
 </body>
 </html>

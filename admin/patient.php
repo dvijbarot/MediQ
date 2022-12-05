@@ -187,12 +187,7 @@
                                 Name
                                 
                                 </th>
-                                <th class="table-headin">
-                                    
                                 
-                                    NIC
-                                    
-                                </th>
                                 <th class="table-headin">
                                 
                             
@@ -243,7 +238,6 @@
                                     $pid=$row["pid"];
                                     $name=$row["pname"];
                                     $email=$row["pemail"];
-                                    $nic=$row["pnic"];
                                     $dob=$row["pdob"];
                                     $tel=$row["ptel"];
                                     
@@ -251,9 +245,6 @@
                                         <td> &nbsp;'.
                                         substr($name,0,35)
                                         .'</td>
-                                        <td>
-                                        '.substr($nic,0,12).'
-                                        </td>
                                         <td>
                                             '.substr($tel,0,10).'
                                         </td>
@@ -324,12 +315,7 @@
             $row=$result->fetch_assoc();
             $name=$row["pname"];
             $email=$row["pemail"];
-            $spe=$row["specialties"];
             
-            $spcil_res= $database->query("select sname from specialties where id='$spe'");
-            $spcil_array= $spcil_res->fetch_assoc();
-            $spcil_name=$spcil_array["sname"];
-            $nic=$row['pnic'];
             $tele=$row['ptel'];
             echo '
             <div id="popup1" class="overlay">
@@ -374,16 +360,6 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="nic" class="form-label"> </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                '.$nic.'<br><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
                                     <label for="Tele" class="form-label">Telephone: </label>
                                 </td>
                             </tr>
@@ -391,17 +367,6 @@
                                 <td class="label-td" colspan="2">
                                 '.$tele.'<br><br>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Specialties: </label>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2">
-                            '.$spcil_name.'<br><br>
-                            </td>
                             </tr>
                             <tr>
                                 <td colspan="2">

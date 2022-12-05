@@ -227,7 +227,7 @@
                                     $name=$row["cname"];
                                     $email=$row["cemail"];
                                     echo '<tr>
-                                        <td> &nbsp;'.
+                                        <td > &nbsp;'.
                                         substr($name,0,30)
                                         .'</td>
                                         <td>
@@ -338,16 +338,6 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="nic" class="form-label"> </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                '.$nic.'<br><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
                                     <label for="Tele" class="form-label">Telephone: </label>
                                 </td>
                             </tr>
@@ -355,17 +345,6 @@
                                 <td class="label-td" colspan="2">
                                 '.$tele.'<br><br>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Specialties: </label>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2">
-                            '.$spcil_name.'<br><br>
-                            </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -600,12 +579,6 @@
                                     <tr>
                                         <td class="label-td" colspan="2">
                                             <input type="tel" name="Tele" class="input-text" placeholder="Telephone Number" value="'.$tele.'" required><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="spec" class="form-label">Choose specialties: (Current'.$spcil_name.')</label>
-                                            
                                         </td>
                                     </tr>
                                     <tr>

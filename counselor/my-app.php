@@ -145,7 +145,7 @@
                 <tr>
                     <td colspan="4" style="padding-top:10px;width: 100%;" >
                     
-                        <p class="heading-main12" style="margin-left: 45px;font-size:18px;color:rgb(49, 49, 49)">All Appointments (<?php echo $list110->num_rows; ?>)</p>
+                        <p class="heading-main12" style="margin-left: 45px;font-size:18px;color:rgb(49, 49, 49)">All Appointments </p>
                     </td>
                     
                 </tr>
@@ -221,7 +221,7 @@
                         
                         //echo $sqlpt2;
                         //echo $sqlpt1;
-                        $sqlmain= "select counschedule.scheduleid,counschedule.title,counselor.cname,counschedule.scheduledate,counschedule.scheduletime,counschedule.pid from counschedule inner join counselor on counschedule.cid=counselor.cid ";
+                        $sqlmain= "select counschedule.cscheduleid,counschedule.title,counselor.cname,counschedule.scheduledate,counschedule.scheduletime,counschedule.pid from counschedule inner join counselor on counschedule.cid=counselor.cid ";
                         $sqllist=array($sqlpt1,$sqlpt2,$sqlpt3);
                         $sqlkeywords=array(" where "," and ");
                         $key2=0;
@@ -238,7 +238,7 @@
                         
                         //
                     }else{
-                        $sqlmain= "select counschedule.scheduleid,counschedule.title,patient.pname,counselor.cname,counschedule.scheduledate,counschedule.scheduletime,counschedule.pid from counschedule inner join counselor on counschedule.cid=counselor.cid inner join patient on counschedule.pid=patient.pid order by counschedule.scheduledate desc";
+                        $sqlmain= "select counschedule.cscheduleid,counschedule.title,patient.pname,counselor.cname,counschedule.scheduledate,counschedule.scheduletime,counschedule.pid from counschedule inner join counselor on counschedule.cid=counselor.cid inner join patient on counschedule.pid=patient.pid order by counschedule.scheduledate desc";
 
                     }
 

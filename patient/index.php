@@ -147,8 +147,7 @@
                         <td >
                             <h3>Welcome!</h3>
                             <h1><?php echo $username  ?>.</h1>
-                            <p>Haven't any idea about doctors? no problem let's jumping to 
-                                Track your past and future appointments history.<br>Also find out the expected arrival time of your doctor or medical consultant.<br><br>
+                            <p>Facing any issues dealing with mental illness?<br>Don't worry! We're here to help you and understand the root cause of the issues, take this small test and get a counsultation from our team.<br><br>
                             </p>
                             
                             <!-- <h3>Channel a Doctor Here</h3>
@@ -199,7 +198,7 @@
                                         <table class="filter-container" style="border: none;" border="0">
                                             <tr>
                                                 <td colspan="4">
-                                                    <p style="font-size: 20px;font-weight:600;padding-left: 12px;">Status</p>
+                                                    <p style="font-size: 20px;font-weight:600;padding-left: 12px;"></p>
                                                 </td>
                                             </tr>
                                             <tr>
